@@ -1,19 +1,21 @@
+const container = document.getElementById('container');
+const grid = document.getElementsByClassName('grid');
+const defaultGridSize = 16;
+const slider = document.getElementById('range');
+let gridSize;
 
-// create grid
+// update grid size based on slider
+
+slider.addEventListener('input', function () {
+    gridSize = slider.value;
+    clearContainer();
+    prepareContainer();
+    createContainer();
+});
+
+// create grid on startup
 
 function createLayout() {
-    var wrapper = document.createElement('div');
-    wrapper.classList.add('wrapper');
-    document.body.appendChild(wrapper);
-
-    var settings = document.createElement('div');
-    settings.classList.add('settings');
-    wrapper.appendChild(settings);
-
-    var container = document.createElement('div');
-    container.classList.add('container');
-    wrapper.appendChild(container);
-
     for (let i = 0; i < 16; ++i) {
         var div = document.createElement('div');
         div.setAttribute('id', i);
@@ -23,3 +25,25 @@ function createLayout() {
 }
 
 createLayout();
+
+// clear current grid 
+
+function clearContainer() {
+    container.textContent = '';
+}
+
+// prepare new grid
+
+function prepareContainer() {
+    container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+}
+
+function createContainer() {
+    for (let i = 0; i < gridSize ** 2; ++i) {
+        var div = document.createElement('div');
+        div.setAttribute('id', i);
+        div.classList.add('grid');
+        container.appendChild(div);
+    }
+}
