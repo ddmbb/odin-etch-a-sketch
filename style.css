@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    height: 500px;
+    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    border: 1px solid black;
+    margin: 50px;
+}
+
+.grid {
+    border: 1px solid black;
+}
+
+.grid:hover {
+    background-color: black;
+}
+
+.settings {
+    height: 500px;
+    width: 200px;
+    display: inline-block;
+    border: 1px solid black;
+    margin: 50px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.header {
+    text-align: center;
+}
