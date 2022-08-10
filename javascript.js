@@ -1,4 +1,3 @@
-let gridSize;
 
 // create grid on startup
 
@@ -24,7 +23,7 @@ colorPicker.addEventListener('input', function () {
     newColor = colorPicker.value;
 });
 
-// toggle button
+// buttons
 
 const drawBtn = document.getElementById('draw');
 const eraseBtn = document.getElementById('erase');
@@ -86,6 +85,7 @@ drawErase();
 // resize grid
 
 const slider = document.getElementById('range');
+let gridsize;
 
 slider.addEventListener('input', function () {
     gridSize = slider.value;
