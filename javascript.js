@@ -1,21 +1,7 @@
-
-
 let gridSize;
 
-// mouse over listener to draw
-
-
-
-
-
-// container.addEventListener('mouseover', function () {
-//     container.ChildNodes.classList.add('black');
-// });
-
-// update grid size based on slider
-
-
 // create grid on startup
+
 const container = document.getElementById('container');
 
 function createLayout() {
@@ -29,23 +15,58 @@ function createLayout() {
 
 createLayout();
 
-//variables
+// select color
 
+const colorPicker = document.getElementById('color');
+let newColor = 'black';
+
+colorPicker.addEventListener('input', function () {
+    newColor = colorPicker.value;
+});
+
+// toggle button
+
+const drawBtn = document.getElementById('draw');
+const eraseBtn = document.getElementById('erase');
+const clearBtn = document.getElementById('clear');
+let draw = true;
+let erase = false;
+
+drawBtn.addEventListener('click', function () {
+    draw = true;
+    erase = false;
+});
+
+eraseBtn.addEventListener('click', function () {
+    draw = false;
+    erase = true;
+});
+
+clearBtn.addEventListener('click', function () {
+    grid = document.querySelectorAll('.grid');
+    for (let i = 0; i <= grid.length - 1; i++) {
+        grid[i].style.backgroundColor = 'white';
+    }
+});
+
+// mouseover grid listener
 
 let grid = document.querySelectorAll('.grid');
-const colorPicker = document.getElementById('color');
-const slider = document.getElementById('range');
 
-function draw() {
+function drawErase() {
     grid = document.querySelectorAll('.grid');
     for (let i = 0; i <= grid.length - 1; i++) {
         grid[i].addEventListener('mouseover', function () {
-            grid[i].classList.add('.black');
+            grid[i].style.backgroundColor = `${newColor}`;
         });
     };
 };
 
-draw();
+drawErase();
+
+// resize grid
+
+const slider = document.getElementById('range');
 
 slider.addEventListener('input', function () {
     gridSize = slider.value;
@@ -54,13 +75,11 @@ slider.addEventListener('input', function () {
     createContainer();
 });
 
-// clear current grid 
+// clear, prepare, and create new grid 
 
 function clearContainer() {
     container.textContent = '';
 }
-
-// prepare new grid
 
 function prepareContainer() {
     container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
@@ -73,6 +92,6 @@ function createContainer() {
         div.setAttribute('id', i);
         div.classList.add('grid');
         container.appendChild(div);
-        draw();
+        drawErase();
     }
 }
