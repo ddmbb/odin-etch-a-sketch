@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono" rel="stylesheet">
 </head>
 
 <body>
@@ -15,8 +16,11 @@
     </header>
     <div class="wrapper">
         <div class="settings">
+            <h3 class="title">Settings</h3>
+            <input type="color" id="color" name="color" value="#000000">
             <button class="buttons" id="draw">Draw</button>
             <button class="buttons" id="erase">Erase</button>
+            <p>Grid Size</p>
             <input type="range" min="16" max="50" value="16" class="slider" id="range">
         </div>
         <div id="container"></div>

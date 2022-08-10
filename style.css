@@ -1,10 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: JetBrains Mono;
 }
 
 #container {
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -13,27 +14,72 @@
 }
 
 .grid {
-    border: 1px solid black;
+    border: 1px solid gray;
 }
 
-.grid:hover {
+/* .grid:hover {
     background-color: black;
-}
+} */
 
 .settings {
-    height: 500px;
+    height: 400px;
     width: 200px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
     margin: 50px;
+    text-align: center;
 }
 
 .wrapper {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     border: 1px solid black;
+    width: 800px;
+    margin: 0 auto 0 auto;
 }
 
 .header {
     text-align: center;
+}
+
+.black {
+    background-color: black;
+}
+
+.title {
+    margin: 40px 0 50px 0;
+}
+
+p {
+    margin: 20px 0 0 0;
+}
+
+button {
+    margin: 10px 20px 20px 20px;
+}
+
+input[type='color']:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+}
+
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 50px;
+    height: 50px;
+    border: none;
+    margin: -20px auto 30px auto;
+    background-color: white;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

@@ -1,8 +1,23 @@
 const container = document.getElementById('container');
-const grid = document.getElementsByClassName('grid');
-const defaultGridSize = 16;
+const grid = document.querySelectorAll('.grid');
+const colorPicker = document.getElementById('color');
 const slider = document.getElementById('range');
+const gridHover = document.querySelectorAll('grid');
+
 let gridSize;
+
+// mouse over listener to draw
+
+grid.addEventListener('mouseover', function () {
+    for (let i = 0; i < grid.length; ++i) {
+        console.log('grid');
+        grid[i].classList.add('black');
+    };
+});
+
+// container.addEventListener('mouseover', function () {
+//     container.ChildNodes.classList.add('black');
+// });
 
 // update grid size based on slider
 
