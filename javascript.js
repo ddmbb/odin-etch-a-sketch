@@ -1,19 +1,12 @@
-const container = document.getElementById('container');
-const grid = document.querySelectorAll('.grid');
-const colorPicker = document.getElementById('color');
-const slider = document.getElementById('range');
-const gridHover = document.querySelectorAll('grid');
+
 
 let gridSize;
 
 // mouse over listener to draw
 
-grid.addEventListener('mouseover', function () {
-    for (let i = 0; i < grid.length; ++i) {
-        console.log('grid');
-        grid[i].classList.add('black');
-    };
-});
+
+
+
 
 // container.addEventListener('mouseover', function () {
 //     container.ChildNodes.classList.add('black');
@@ -21,14 +14,9 @@ grid.addEventListener('mouseover', function () {
 
 // update grid size based on slider
 
-slider.addEventListener('input', function () {
-    gridSize = slider.value;
-    clearContainer();
-    prepareContainer();
-    createContainer();
-});
 
 // create grid on startup
+const container = document.getElementById('container');
 
 function createLayout() {
     for (let i = 0; i < 16; ++i) {
@@ -40,6 +28,31 @@ function createLayout() {
 }
 
 createLayout();
+
+//variables
+
+
+let grid = document.querySelectorAll('.grid');
+const colorPicker = document.getElementById('color');
+const slider = document.getElementById('range');
+
+function draw() {
+    grid = document.querySelectorAll('.grid');
+    for (let i = 0; i <= grid.length - 1; i++) {
+        grid[i].addEventListener('mouseover', function () {
+            grid[i].classList.add('.black');
+        });
+    };
+};
+
+draw();
+
+slider.addEventListener('input', function () {
+    gridSize = slider.value;
+    clearContainer();
+    prepareContainer();
+    createContainer();
+});
 
 // clear current grid 
 
@@ -60,5 +73,6 @@ function createContainer() {
         div.setAttribute('id', i);
         div.classList.add('grid');
         container.appendChild(div);
+        draw();
     }
 }
