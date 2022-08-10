@@ -36,14 +36,28 @@ let erase = false;
 drawBtn.addEventListener('click', function () {
     draw = true;
     erase = false;
+    if (draw === true) {
+        drawBtn.classList.add('buttonOn');
+        eraseBtn.classList.remove('buttonOn');
+    };
 });
 
 eraseBtn.addEventListener('click', function () {
     draw = false;
     erase = true;
+    if (draw !== true) {
+        drawBtn.classList.remove('buttonOn');
+        eraseBtn.classList.add('buttonOn');
+    };
 });
 
 clearBtn.addEventListener('click', function () {
+    draw = true;
+    erase = false;
+    if (draw === true) {
+        drawBtn.classList.add('buttonOn');
+        eraseBtn.classList.remove('buttonOn');
+    };
     grid = document.querySelectorAll('.grid');
     for (let i = 0; i <= grid.length - 1; i++) {
         grid[i].style.backgroundColor = 'white';
