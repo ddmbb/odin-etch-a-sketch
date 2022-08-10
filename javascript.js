@@ -32,6 +32,7 @@ const clearBtn = document.getElementById('clear');
 let draw = true;
 let erase = false;
 
+
 drawBtn.addEventListener('click', function () {
     draw = true;
     erase = false;
@@ -57,7 +58,11 @@ function drawErase() {
     grid = document.querySelectorAll('.grid');
     for (let i = 0; i <= grid.length - 1; i++) {
         grid[i].addEventListener('mouseover', function () {
-            grid[i].style.backgroundColor = `${newColor}`;
+            if (draw === true) {
+                grid[i].style.backgroundColor = `${newColor}`;
+            } else {
+                grid[i].style.backgroundColor = 'white';
+            }
         });
     };
 };
